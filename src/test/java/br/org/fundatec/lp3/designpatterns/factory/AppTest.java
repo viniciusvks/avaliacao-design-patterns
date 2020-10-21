@@ -103,8 +103,8 @@ public class AppTest
     		for(Arma segundaArma : armasOrc) {
     		
     			Orc orc = new Orc();
-    			orc.setPrimeiraArma(primeiraArma);
-    			orc.setSegundaArma(segundaArma);
+    			orc.setPrimeiraArma(primeiraArma.getTipoArma());
+    			orc.setSegundaArma(segundaArma.getTipoArma());
     			todosOsOrcsPossiveis.add(orc);
 
     		}
@@ -128,8 +128,8 @@ public class AppTest
     		for(Arma segundaArma : armasElfo) {
     		
     			Elfo elfo = new Elfo();
-    			elfo.setPrimeiraArma(primeiraArma);
-    			elfo.setSegundaArma(segundaArma);
+    			elfo.setPrimeiraArma(primeiraArma.getTipoArma());
+    			elfo.setSegundaArma(segundaArma.getTipoArma());
     			todosOsElfosPossiveis.add(elfo);
 
     		}

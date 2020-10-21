@@ -12,6 +12,8 @@ public class Elfo extends Personagem {
 		armasDisponiveis.add(TipoArma.PUNHAL);
 		armasDisponiveis.add(TipoArma.PUNHALDUPLO);
 		armasDisponiveis.add(TipoArma.ESPADA);
+		
+		armaFactory = new ArmaElfoFactory();
 
 	}
 
@@ -23,6 +25,16 @@ public class Elfo extends Personagem {
 	@Override
 	public List<TipoArma> tiposDeArmaDisponiveis() {
 		return armasDisponiveis;
+	}
+
+	@Override
+	public void setPrimeiraArma(TipoArma tipoArma) {		
+		this.primeiraArma = armaFactory.criarArma(tipoArma);		
+	}
+
+	@Override
+	public void setSegundaArma(TipoArma tipoArma) {
+		this.segundaArma = armaFactory.criarArma(tipoArma);
 	}
 
 }

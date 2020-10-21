@@ -12,6 +12,8 @@ public class Orc extends Personagem {
 		armasDisponiveis.add(TipoArma.MARTELO);
 		armasDisponiveis.add(TipoArma.PUNHAL);
 		armasDisponiveis.add(TipoArma.ESPADA);
+		
+		armaFactory = new ArmaOrcFactory();
 
 	}
 
