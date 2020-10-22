@@ -1,18 +1,19 @@
 package br.org.fundatec.lp3.designpatterns;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Orc extends Personagem {
-
-	public Orc() {
-
-		armasDisponiveis = new ArrayList<>();
+	
+	@Override
+	protected void inicializaPersonagem() {
+		
 		armasDisponiveis.add(TipoArma.MACHADO);
 		armasDisponiveis.add(TipoArma.MARTELO);
 		armasDisponiveis.add(TipoArma.PUNHAL);
 		armasDisponiveis.add(TipoArma.ESPADA);
-
+		
+		armaFactory = new ArmaOrcFactory();
+		
 	}
 
 	@Override

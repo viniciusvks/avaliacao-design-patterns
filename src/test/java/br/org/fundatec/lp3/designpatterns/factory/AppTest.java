@@ -85,7 +85,6 @@ public class AppTest
 	    }
     	
     }
-
     
 	private static List<Personagem> montaTodosOsOrcs() {
 		

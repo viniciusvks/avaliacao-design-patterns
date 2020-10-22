@@ -34,45 +34,24 @@ public class App {
 
 	public Personagem montaPersonagem(Scanner scanner) throws Exception {
 
-		Personagem personagem;
-
 		System.out.print("> ");
-		int opcaoPersonagem = scanner.nextInt();
+		
+		Personagem personagem = TipoPersonagem.buscarPorOpcao(scanner.nextInt());
 
-		if (opcaoPersonagem == TipoPersonagem.ELFO.getOpcao()) {
-			personagem = new Elfo();
-		} else if (opcaoPersonagem == TipoPersonagem.ORC.getOpcao()) {
-			personagem = new Orc();
-		} else {
-			return null;
+		if (personagem == null) {
+			throw new Exception("Opcao de personagem invalida");
 		}
-
+		
 		System.out.println("> Primeira Arma: ");
 		TipoArma tipoPrimeiraArma = montaArma(personagem, scanner);
 
 		if (personagem.getTipoPersonagem().equals(TipoPersonagem.ELFO)) {
 
-			if (tipoPrimeiraArma.equals(TipoArma.ARCOEFLECHA)) {
-				personagem.setPrimeiraArma(new ArcoEFlecha());
-			} else if (tipoPrimeiraArma.equals(TipoArma.ESPADA)) {
-				personagem.setPrimeiraArma(new EspadaElfo());
-			} else if (tipoPrimeiraArma.equals(TipoArma.PUNHAL)) {
-				personagem.setPrimeiraArma(new PunhalElfo());
-			} else if (tipoPrimeiraArma.equals(TipoArma.PUNHALDUPLO)) {
-				personagem.setPrimeiraArma(new PunhalDuplo());
-			}
+			personagem.setPrimeiraArma((new ArmaElfoFactory()).criarArma(tipoPrimeiraArma));
 
 		} else if (personagem.getTipoPersonagem().equals(TipoPersonagem.ORC)) {
 
-			if (tipoPrimeiraArma.equals(TipoArma.MACHADO)) {
-				personagem.setPrimeiraArma(new Machado());
-			} else if (tipoPrimeiraArma.equals(TipoArma.MARTELO)) {
-				personagem.setPrimeiraArma(new Martelo());
-			} else if (tipoPrimeiraArma.equals(TipoArma.PUNHAL)) {
-				personagem.setPrimeiraArma(new PunhalOrc());
-			} else if (tipoPrimeiraArma.equals(TipoArma.ESPADA)) {
-				personagem.setPrimeiraArma(new EspadaOrc());
-			}
+			personagem.setPrimeiraArma((new ArmaOrcFactory()).criarArma(tipoPrimeiraArma));
 
 		}
 
@@ -81,27 +60,11 @@ public class App {
 
 		if (personagem.getTipoPersonagem().equals(TipoPersonagem.ELFO)) {
 
-			if (tipoSegundaArma.equals(TipoArma.ARCOEFLECHA)) {
-				personagem.setSegundaArma(new ArcoEFlecha());
-			} else if (tipoSegundaArma.equals(TipoArma.ESPADA)) {
-				personagem.setSegundaArma(new EspadaElfo());
-			} else if (tipoSegundaArma.equals(TipoArma.PUNHAL)) {
-				personagem.setSegundaArma(new PunhalElfo());
-			} else if (tipoSegundaArma.equals(TipoArma.PUNHALDUPLO)) {
-				personagem.setSegundaArma(new PunhalDuplo());
-			}
+			personagem.setSegundaArma((new ArmaElfoFactory()).criarArma(tipoSegundaArma));
 
 		} else if (personagem.getTipoPersonagem().equals(TipoPersonagem.ORC)) {
 
-			if (tipoSegundaArma.equals(TipoArma.MACHADO)) {
-				personagem.setSegundaArma(new Machado());
-			} else if (tipoSegundaArma.equals(TipoArma.MARTELO)) {
-				personagem.setSegundaArma(new Martelo());
-			} else if (tipoSegundaArma.equals(TipoArma.PUNHAL)) {
-				personagem.setSegundaArma(new PunhalOrc());
-			} else if (tipoSegundaArma.equals(TipoArma.ESPADA)) {
-				personagem.setSegundaArma(new EspadaOrc());
-			}
+			personagem.setSegundaArma((new ArmaOrcFactory()).criarArma(tipoSegundaArma));
 
 		}
 

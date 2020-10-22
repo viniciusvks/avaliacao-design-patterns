@@ -12,15 +12,29 @@ public abstract class Personagem {
 	protected Arma segundaArma;
 	protected Arma ultimaArmaUsada;
 	protected Integer vida;
+	protected ArmaFactory armaFactory;
 
 	public Personagem() {
+		
 		vida = 100;
 		armasDisponiveis = new ArrayList<>();
+		inicializaPersonagem();
+		
 	}
+	
+	protected abstract void inicializaPersonagem();
 
 	public abstract List<TipoArma> tiposDeArmaDisponiveis();
 
 	public abstract TipoPersonagem getTipoPersonagem();
+	
+	public void setPrimeiraArma(TipoArma tipoPrimeiraArma) {
+		this.primeiraArma = armaFactory.criarArma(tipoPrimeiraArma);
+	}
+	
+	public void setSegundaArma(TipoArma tipoSegundaArma) {
+		this.segundaArma = armaFactory.criarArma(tipoSegundaArma);
+	}
 
 	public void setPrimeiraArma(Arma primeiraArma) {
 		this.primeiraArma = primeiraArma;
