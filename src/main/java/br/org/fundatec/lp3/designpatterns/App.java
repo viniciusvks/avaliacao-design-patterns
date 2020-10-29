@@ -43,31 +43,13 @@ public class App {
 		}
 		
 		System.out.println("> Primeira Arma: ");
-		TipoArma tipoPrimeiraArma = montaArma(personagem, scanner);
-
-		if (personagem.getTipoPersonagem().equals(TipoPersonagem.ELFO)) {
-
-			personagem.setPrimeiraArma((new ArmaElfoFactory()).criarArma(tipoPrimeiraArma));
-
-		} else if (personagem.getTipoPersonagem().equals(TipoPersonagem.ORC)) {
-
-			personagem.setPrimeiraArma((new ArmaOrcFactory()).criarArma(tipoPrimeiraArma));
-
-		}
-
+		TipoArma tipoPrimeiraArma = montaArma(personagem, scanner);		
+		personagem.setPrimeiraArma(tipoPrimeiraArma);
+		
 		System.out.println("> Segunda Arma: ");
 		TipoArma tipoSegundaArma = montaArma(personagem, scanner);
-
-		if (personagem.getTipoPersonagem().equals(TipoPersonagem.ELFO)) {
-
-			personagem.setSegundaArma((new ArmaElfoFactory()).criarArma(tipoSegundaArma));
-
-		} else if (personagem.getTipoPersonagem().equals(TipoPersonagem.ORC)) {
-
-			personagem.setSegundaArma((new ArmaOrcFactory()).criarArma(tipoSegundaArma));
-
-		}
-
+		personagem.setSegundaArma(tipoSegundaArma);
+	
 		return personagem;
 
 	}

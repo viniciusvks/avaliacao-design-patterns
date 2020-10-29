@@ -3,6 +3,7 @@ import br.org.fundatec.lp3.designpatterns.Elfo;
 import br.org.fundatec.lp3.designpatterns.Jogo;
 import br.org.fundatec.lp3.designpatterns.Orc;
 import br.org.fundatec.lp3.designpatterns.Personagem;
+import br.org.fundatec.lp3.designpatterns.TipoArma;
 import br.org.fundatec.lp3.designpatterns.arma.ArcoEFlecha;
 import br.org.fundatec.lp3.designpatterns.arma.Arma;
 import br.org.fundatec.lp3.designpatterns.arma.EspadaElfo;
@@ -88,22 +89,17 @@ public class AppTest
     
 	private static List<Personagem> montaTodosOsOrcs() {
 		
-		List<Arma> armasOrc = new ArrayList<>();
+		List<TipoArma> armasOrc = (new Orc()).tiposDeArmaDisponiveis();
 		
-	    armasOrc.add(new Machado());
-	    armasOrc.add(new Martelo());
-	    armasOrc.add(new PunhalOrc());
-	    armasOrc.add(new EspadaOrc());
-	    
     	List<Personagem> todosOsOrcsPossiveis = new ArrayList<>();
     	
-    	for(Arma primeiraArma : armasOrc) {
+    	for(TipoArma tipoPrimeiraArma : armasOrc) {
 
-    		for(Arma segundaArma : armasOrc) {
+    		for(TipoArma tipoSegundaArma : armasOrc) {
     		
     			Orc orc = new Orc();
-    			orc.setPrimeiraArma(primeiraArma);
-    			orc.setSegundaArma(segundaArma);
+    			orc.setPrimeiraArma(tipoPrimeiraArma);
+    			orc.setSegundaArma(tipoSegundaArma);
     			todosOsOrcsPossiveis.add(orc);
 
     		}
@@ -114,21 +110,17 @@ public class AppTest
     
     private static List<Personagem> montaTodosOsElfos() {
     	
-    	List<Arma> armasElfo = new ArrayList<>();
-    	armasElfo.add(new ArcoEFlecha());
-    	armasElfo.add(new EspadaElfo());
-    	armasElfo.add(new PunhalElfo());
-    	armasElfo.add(new PunhalDuplo());
+    	List<TipoArma> armasElfo = (new Elfo()).tiposDeArmaDisponiveis();
     	
     	List<Personagem> todosOsElfosPossiveis = new ArrayList<>();
     	
-    	for(Arma primeiraArma : armasElfo) {
+    	for(TipoArma tipoPrimeiraArma : armasElfo) {
 
-    		for(Arma segundaArma : armasElfo) {
+    		for(TipoArma tipoSegundaArma : armasElfo) {
     		
     			Elfo elfo = new Elfo();
-    			elfo.setPrimeiraArma(primeiraArma);
-    			elfo.setSegundaArma(segundaArma);
+    			elfo.setPrimeiraArma(tipoPrimeiraArma);
+    			elfo.setSegundaArma(tipoSegundaArma);
     			todosOsElfosPossiveis.add(elfo);
 
     		}

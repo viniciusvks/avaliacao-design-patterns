@@ -25,7 +25,7 @@ public abstract class Personagem {
 	protected abstract void inicializaPersonagem();
 
 	public abstract List<TipoArma> tiposDeArmaDisponiveis();
-
+	
 	public abstract TipoPersonagem getTipoPersonagem();
 	
 	public void setPrimeiraArma(TipoArma tipoPrimeiraArma) {
@@ -34,14 +34,6 @@ public abstract class Personagem {
 	
 	public void setSegundaArma(TipoArma tipoSegundaArma) {
 		this.segundaArma = armaFactory.criarArma(tipoSegundaArma);
-	}
-
-	public void setPrimeiraArma(Arma primeiraArma) {
-		this.primeiraArma = primeiraArma;
-	}
-
-	public void setSegundaArma(Arma segundaArma) {
-		this.segundaArma = segundaArma;
 	}
 
 	public Arma getPrimeiraArma() {
